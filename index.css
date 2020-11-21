@@ -1,0 +1,116 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body{
+	background-image: url("wallpaper.jpg");
+	background-repeat: no-repeat;
+	background-opacity: 0.8;
+	text-align: center;
+}
+
+h1{
+	font-family: 'Roboto', sans-serif;
+	font-size: 68px;
+	background-color: black;
+	padding: 25px;
+	/*color: lightgreen;*/
+	color: rgb(41, 214, 52);
+}
+.heading
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color:white;
+}
+section
+{	
+	/*background: #fee648;*/
+	display: flex;
+	/*padding: 20px;*/
+	justify-content: center;
+	align-items: center;
+}
+
+section .container
+{
+	position: relative;
+	margin-top: 100px;
+	width: 500px;
+	height: 550px;
+	background-color: rgb(0, 63, 63);  
+  box-shadow: 0 15px 50px rgba(0,0,0,.7);
+}
+.userform{
+	/*position: center;*/
+    top:10;
+    left:0;
+    width:100%;
+    height:50%;
+    display:center;
+}
+
+input[type=text], select {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 15px 50px rgba(0,0,0,.7);
+}
+input[type=password], select {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-size: 16px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 15px 50px rgba(0,0,0,.7);
+}
+input[type=submit] {
+  width: 60%;
+  background-color: rgb(41, 214, 52);
+  color: black;
+  size: 50px;
+  padding: 14px 20px;
+  font-size: 16px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 15px 50px rgba(0,0,0,.7);
+}
+.extra{
+	margin-left: 170px;
+	margin-right: auto;
+	color:white;
+	/*font-size: 12px;*/
+}
+
+button[type=button] {
+  width: 60%;
+  color: black;
+  size: 50px;
+  padding: 14px 20px;
+  font-size: 16px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 15px 50px rgba(0,0,0,.7);
+}
+
+#gbtn {
+	background-color: #DB4437;
+}
+#fbtn {
+	background-color: #3b5998;
+}

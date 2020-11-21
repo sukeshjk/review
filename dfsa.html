@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign-In Form</title>
+    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+</head>
+<body>
+    <h1>Agrimate</h1>
+    <section>
+    <div class="container">
+        <div class="userform">
+        <div class="form">
+            <form action="main.php" method="post"> 
+                <h2 class="heading">Sign In</h2>
+                <!-- <label>username:</label> -->
+                <input type="text" name="username"  placeholder="username" required><br>
+                <br>
+                <!-- <label>password:</label> -->
+                <input type="password" name="password" placeholder="password" required title="Password between 8-15 characters required"><br> 
+                <br>
+               <!--  <div class="extra">       
+                    <input type="checkbox">
+                    Remember me
+                </div>  -->                 
+                    <br>
+                    <input type="submit" value="Login">
+                    <br>
+                    <button type="button" id="gbtn">Sign in with Google
+                    </button>
+                    <br>
+                    <button type="button" id="fbtn" onclick="FacebookLogin()">Login with Facebook
+                    </button>              
+                    <button type="button" id="phbtn" >Sign in with Phone No.
+                    </button>             
+            </form>
+        </div>    
+        </div>
+    </div>
+    <div class="userform">
+        <h1>Enter number to create account</h1>
+    <div class="form">
+<form>
+    <input type="text" id="number" placeholder="+923********">
+    <div id="recaptcha-container"></div>
+    <button type="button" onclick="phoneAuth();">SendCode</button>
+</form><br>
+<h1>Enter Verification code</h1>
+<form>
+    <input type="text" id="verificationCode" placeholder="Enter verification code">
+    <button type="button" onclick="codeverify();">Verify code</button>
+
+</form>
+</div>
+    </div>
+</section>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase.js"></script>
+
+        <script>
+          var firebaseConfig = {
+            apiKey: "AIzaSyCjfJN-MsO9MRQvjgqE92kdgtikfUzG4xQ",
+            authDomain: "web-app-287511.firebaseapp.com",
+            databaseURL: "https://web-app-287511.firebaseio.com",
+            projectId: "web-app-287511",
+            storageBucket: "web-app-287511.appspot.com",
+            messagingSenderId: "6490889039",
+            appId: "1:6490889039:web:49f6d876fa4918c74bc33a"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+        </script>
+
+        <script>
+            window.onload=function () {
+  render();
+};
+function render() {
+    window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+}
+function phoneAuth() {
+    //get the number
+    var number=document.getElementById('number').value;
+    //phone number authentication function of firebase
+    //it takes two parameter first one is number,,,second one is recaptcha
+    firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
+        //s is in lowercase
+        window.confirmationResult=confirmationResult;
+        coderesult=confirmationResult;
+        console.log(coderesult);
+        alert("Message sent");
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+function codeverify() {
+    var code=document.getElementById('verificationCode').value;
+    coderesult.confirm(code).then(function (result) {
+        alert("Successfully registered");
+        var user=result.user;
+        console.log(user);
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+        </script>
+
+</body>
+</html>
